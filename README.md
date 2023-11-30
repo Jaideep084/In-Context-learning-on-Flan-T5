@@ -8,4 +8,22 @@ pip install transformers datasets
 ```
 ## Code Structure
 #### Import necessary libraries:
-
+```python
+from datasets import load_dataset
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, BertGenerationConfig
+```
+#### Load the conversational dataset:
+```python
+dataset_name = "knkarthick/dialogsum"
+dataset = load_dataset(dataset_name)
+```
+#### Define example indices for demonstration:
+```python
+example_indices = [40, 200]
+```
+#### Initialize the Flan-T5 model and tokenizer:
+```python
+model_name = 'google/flan-t5-base'
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+```
